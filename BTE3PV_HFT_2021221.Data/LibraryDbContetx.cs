@@ -11,7 +11,7 @@ using BTE3PV_HFT_2021221.Models;
 
 namespace BTE3PV_HFT_2021221.Data
 {
-    class LibraryDbContetx : DbContext
+    public partial class LibraryDbContetx : DbContext
     {
         public virtual DbSet<Publisher> Publishers { get; set; }
         public virtual DbSet<Author> Authors { get; set; }
@@ -29,7 +29,7 @@ namespace BTE3PV_HFT_2021221.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseLazyLoadingProxies().UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename= | DataDirectory |\Database.mdf;Integrated Security=True");
+                optionsBuilder.UseLazyLoadingProxies().UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True");
 
 
             }
