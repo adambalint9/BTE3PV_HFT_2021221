@@ -11,18 +11,18 @@ using BTE3PV_HFT_2021221.Models;
 
 namespace BTE3PV_HFT_2021221.Data
 {
-    public partial class LibraryDbContetx : DbContext
+    public partial class LibraryDbContext : DbContext
     {
         public virtual DbSet<Publisher> Publishers { get; set; }
         public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<Book> Books { get; set; }
 
-        public LibraryDbContetx()
+        public LibraryDbContext()
         {
             this.Database.EnsureCreated();
         }
 
-        public LibraryDbContetx(DbContextOptions<LibraryDbContetx> options) : base(options)
+        public LibraryDbContext(DbContextOptions<LibraryDbContext> options) : base(options)
         { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
