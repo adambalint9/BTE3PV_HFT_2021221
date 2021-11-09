@@ -13,7 +13,7 @@ namespace BTE3PV_HFT_2021221.Repository
 
         LibraryDbContext db;
 
-        AuthorRepository(LibraryDbContext db)
+       public AuthorRepository(LibraryDbContext db)
         {
 
             this.db = db;
