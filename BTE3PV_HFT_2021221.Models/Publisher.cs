@@ -10,7 +10,7 @@ namespace BTE3PV_HFT_2021221.Models
 {
     
     
-        [Table("Publisher")]
+        [Table("Publishers")]
         public class Publisher
         {
             [Key]

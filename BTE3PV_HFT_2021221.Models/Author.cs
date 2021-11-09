@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BTE3PV_HFT_2021221.Models
 {
-    [Table("Author")]
+    [Table("Authors")]
     public class Author
     {
         [Key]

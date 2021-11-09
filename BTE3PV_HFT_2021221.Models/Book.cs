@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BTE3PV_HFT_2021221.Models
 {
-    [Table("Book")]
+    [Table("Books")]
     public class Book
     {
         [Key]
