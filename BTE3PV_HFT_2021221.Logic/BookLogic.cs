@@ -8,7 +8,7 @@ using BTE3PV_HFT_2021221.Repository;
 
 namespace BTE3PV_HFT_2021221.Logic
 {
-    class BookLogic : IBookLogic
+    public class BookLogic : IBookLogic
     {
         IBookRepository bookRepository;
         public BookLogic(IBookRepository bookrepo)

@@ -8,7 +8,7 @@ using BTE3PV_HFT_2021221.Repository;
 
 namespace BTE3PV_HFT_2021221.Logic
 {
-    class PublisherLogic : IPublisherLogic
+   public class PublisherLogic : IPublisherLogic
     {
 
         IPublisherRepository publisherRepository;
