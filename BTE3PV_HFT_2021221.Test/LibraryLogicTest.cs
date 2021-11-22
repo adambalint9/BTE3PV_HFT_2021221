@@ -289,7 +289,7 @@ namespace BTE3PV_HFT_2021221.Test
 
 
             Assert.That(result[2], Is.EqualTo(new KeyValuePair<string, bool>("Test3", false)));
-           // Assert.That(result[0], Is.EqualTo(new KeyValuePair<string, bool>("Test1", true)));
+            // Assert.That(result[0], Is.EqualTo(new KeyValuePair<string, bool>("Test1", true)));
         }
 
         [Test]
@@ -310,11 +310,76 @@ namespace BTE3PV_HFT_2021221.Test
             Assert.That(results[0], Is.EqualTo(new KeyValuePair<string, int>("RealPublisher", 4)));
 
 
+        }
+        [TestCase("", false)]
+        [TestCase("rendes", true)]
+        public void CreateAuthorrTest(string name, bool result)
+        {
+
+            //ACT + ASSERT
+            if (result)
+            {
+                Assert.That(() => al.Create(new Author()
+                {
+                    AuthoreName = name,
+                }), Throws.Nothing);
+            }
+            else
+            {
+                Assert.That(() => al.Create(new Author()
+                {
+                    AuthoreName = name,
+                }), Throws.Exception);
+            }
 
 
         }
+        [TestCase("", false)]
+        [TestCase("rendes", true)]
+        public void CreatePublisherTest(string name, bool result)
+        {
+
+            //ACT + ASSERT
+            if (result)
+            {
+                Assert.That(() => pl.Create(new Publisher()
+                {
+                    PublisherName = name,
+                }), Throws.Nothing);
+            }
+            else
+            {
+                Assert.That(() =>pl.Create(new Publisher()
+                {
+                    PublisherName = name,
+                }), Throws.Exception);
+            }
 
 
 
+        }
+        [TestCase("", false)]
+        [TestCase("rendes", true)]        
+        public void CreateBookTest(string name, bool result)
+        {
+
+            //ACT + ASSERT
+            if (result)
+            {
+                Assert.That(() => bl.Create(new Book()
+                {
+                    Title=name,
+                }), Throws.Nothing);
+            }
+            else
+            {
+                Assert.That(() => bl.Create(new Book()
+                {
+                    Title = name,
+                }), Throws.Exception);
+            }
+
+
+        }
     }
 }
