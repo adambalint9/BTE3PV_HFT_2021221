@@ -19,6 +19,12 @@ namespace BTE3PV_HFT_2021221.Logic
             this.authorRepository = authorRepo;
         }
 
+        public double AGVBirthYear()
+        {
+            return authorRepository.ReadAll().Average(t => t.BirthYear);
+                    
+        }
+
         public IEnumerable<KeyValuePair<string, int>> CountBookByAuthor()
         {
             return from x in authorRepository.ReadAll()                       

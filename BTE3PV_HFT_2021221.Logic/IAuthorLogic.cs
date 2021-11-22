@@ -15,6 +15,6 @@ namespace BTE3PV_HFT_2021221.Logic
         IEnumerable<Author> ReadAll();
         void Update(Author author);
         IEnumerable<KeyValuePair<string, int>> CountBookByAuthor();
-       
+        double AGVBirthYear();
     }
 }
