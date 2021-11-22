@@ -38,7 +38,7 @@ namespace BTE3PV_HFT_2021221.Logic
 
         public void Create(Book book)
         {
-            if (book.Title.Length>0)
+            if (book.Title.Length==0)
             {
                 throw new ArgumentException("Book name canot be empty");
             }

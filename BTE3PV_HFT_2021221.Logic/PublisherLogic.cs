@@ -30,7 +30,7 @@ namespace BTE3PV_HFT_2021221.Logic
 
         public void Create(Publisher publisher)
         {
-            if (publisher.PublisherName.Length>4)
+            if (publisher.PublisherName.Length<4)
             {
                 throw new ArgumentException("Name must be longer than 4 character");
             }
