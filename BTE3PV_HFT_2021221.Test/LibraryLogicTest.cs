@@ -29,7 +29,7 @@ namespace BTE3PV_HFT_2021221.Test
                      {
                             AuthoreName = "Proba",
                             Birthcountry = "England",
-                            BirthYear = 1995,
+                            BirthYear = 2000,
                             WritingLanguage = "English",
                             Specialization = "Math",
                             Books= new List<Book>()
@@ -50,7 +50,7 @@ namespace BTE3PV_HFT_2021221.Test
                      new Author()
                      {      AuthoreName = "Probalina",
                              Birthcountry = "Hungary",
-                            BirthYear = 1970,
+                            BirthYear = 1000,
                             WritingLanguage = "Hungarian",
                             Specialization = "Biology",
 
@@ -143,6 +143,7 @@ namespace BTE3PV_HFT_2021221.Test
            {
                new Book()
                {
+                   Id=0,
                  Language = "English",
                   Title = "Test1",
                  YearOfIssue = 2010,
@@ -155,6 +156,7 @@ namespace BTE3PV_HFT_2021221.Test
 
                new Book()
                     {
+                         Id=1,
                         Language = "English",
                         Title = "Test2",
                         YearOfIssue = 2010,
@@ -166,7 +168,8 @@ namespace BTE3PV_HFT_2021221.Test
                     },
 
                  new Book()
-                {
+                { 
+                     Id=2,
                     Language = "English",
                     Title = "Test3",
                     YearOfIssue = 2010,
@@ -178,6 +181,7 @@ namespace BTE3PV_HFT_2021221.Test
                 },
                 new Book()
                 {
+                     Id=3,
                     Language = "Hungarian",
                     Title = "Test4",
                     YearOfIssue = 2010,
@@ -316,7 +320,7 @@ namespace BTE3PV_HFT_2021221.Test
         public void CreateAuthorrTest(string name, bool result)
         {
 
-            //ACT + ASSERT
+            
             if (result)
             {
                 Assert.That(() => al.Create(new Author()
@@ -339,7 +343,7 @@ namespace BTE3PV_HFT_2021221.Test
         public void CreatePublisherTest(string name, bool result)
         {
 
-            //ACT + ASSERT
+            
             if (result)
             {
                 Assert.That(() => pl.Create(new Publisher()
@@ -363,7 +367,6 @@ namespace BTE3PV_HFT_2021221.Test
         public void CreateBookTest(string name, bool result)
         {
 
-            //ACT + ASSERT
             if (result)
             {
                 Assert.That(() => bl.Create(new Book()
@@ -381,5 +384,37 @@ namespace BTE3PV_HFT_2021221.Test
 
 
         }
+
+
+        [TestCase("Ujnev")]
+        public void BookUpdte(string name)
+        {
+            var test = bl.ReadAll().ToArray();
+            test[0].Title = name;
+
+            bl.Update(test[0]);
+            var sample = bl.ReadAll().ToArray();
+            
+
+            Assert.That(test[0].Title, Is.EqualTo(sample[0].Title));
+
+
+        }
+        [Test]
+        public void AvGAuthorBirthYear()
+        {
+
+
+            var test = al.AGVBirthYear();
+
+            Assert.That(test, Is.EqualTo(1500));
+        
+        
+        }
+
+
+
+
+
     }
 }
