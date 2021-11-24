@@ -1,3 +1,6 @@
+using BTE3PV_HFT_2021221.Data;
+using BTE3PV_HFT_2021221.Logic;
+using BTE3PV_HFT_2021221.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -12,10 +15,19 @@ namespace BTE3PV_HFT_2021221.Endpoint
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+       
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
+            services.AddTransient<IBookLogic, BookLogic>();
+            services.AddTransient<IAuthorLogic, AuthorLogic>();
+            services.AddTransient<IPublisherLogic, PublisherLogic>();
+
+            services.AddTransient<IBookRepository, BookRepository>();
+            services.AddTransient<IAuthorRepository, AuthorRepository>();
+            services.AddTransient<IPublisherRepository, PublisherRepository>();
+
+            services.AddTransient<LibraryDbContext, LibraryDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,11 +42,9 @@ namespace BTE3PV_HFT_2021221.Endpoint
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllers();
             });
+          
         }
     }
 }
