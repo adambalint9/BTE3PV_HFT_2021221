@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace BTE3PV_HFT_2021221.Models
@@ -33,19 +34,25 @@ namespace BTE3PV_HFT_2021221.Models
         
         public string Language { get; set; }
 
-        
+        public int Count(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
+        }
+
         public int Lenght { get; set; }
 
         [ForeignKey(nameof(Author))]
         public int AuthorID { get; set; }
 
         [NotMapped]
+        [JsonIgnore]
         public virtual Author Author { get; set; }
 
         [ForeignKey(nameof(Publishers))]
         public int PublisherID { get; set; }
 
         [NotMapped]
+        [JsonIgnore]
         public virtual Publisher Publishers { get; set; }
 
         

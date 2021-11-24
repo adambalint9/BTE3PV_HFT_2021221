@@ -52,10 +52,12 @@ namespace BTE3PV_HFT_2021221.Data
             Book b9 = new Book { Id = 9, Title = "Wonders Of Imanigary Numbers", Topic = "Math", YearOfIssue = 1926, Language = "Italian", Lenght = 356 };
             Book b10 = new Book { Id = 10, Title = "Heart And Cloning ", Topic = "Biology", YearOfIssue = 2006, Language = "English", Lenght = 350 };
             Book b11 = new Book { Id = 11, Title = "Simple Computers", Topic = "Computer Science", YearOfIssue = 2011, Language = "English", Lenght = 266 };
-            Book b12 = new Book { Id = 12, Title = "Child and Parents", Topic = "Psychology", YearOfIssue = 2003, Language = "Hungarian", Lenght = 450 };
+            Book b12 = new Book { Id = 12, Title = "Child and Parents", Topic = "Psychology", YearOfIssue = 2003, Language = "English", Lenght = 450 };
             Book b13 = new Book { Id = 13, Title = "Children and Schools", Topic = "Psychology", YearOfIssue = 2010, Language = "Hungarian", Lenght = 381 };
             Book b14 = new Book { Id = 14, Title = "Basic Programming Principle", Topic = "Computer Science", YearOfIssue = 2005, Language = "English", Lenght = 302 };
             Book b15 = new Book { Id = 15, Title = "How  Get To Anoher Star System", Topic = "physics", YearOfIssue = 1998, Language = "English", Lenght = 680 };
+            Book b16 = new Book { Id = 17, Title = "Math for Computers", Topic = "Math", YearOfIssue = 2015, Language = "English", Lenght = 201 };
+
 
             Author a0 = new Author { Id = 1, AuthoreName = "Isaac Newton", BirthYear = 1642, Birthcountry = "England", WritingLanguage = "English", Specialization = "physics" };
             Author a1 = new Author { Id = 2, AuthoreName = "Will Gabriel", BirthYear = 1790, Birthcountry = "England", WritingLanguage = "English", Specialization = "Math" };
@@ -122,6 +124,9 @@ namespace BTE3PV_HFT_2021221.Data
             b15.AuthorID = a9.Id;
             b15.PublisherID = p0.Id;
 
+            b16.AuthorID = a7.Id;
+            b16.PublisherID = p0.Id;
+
             modelBuilder.Entity<Book>(entity =>
             {
                 entity.HasOne(book => book.Author)
@@ -137,7 +142,7 @@ namespace BTE3PV_HFT_2021221.Data
                 .OnDelete(DeleteBehavior.ClientSetNull);
             });
 
-            modelBuilder.Entity<Book>().HasData(b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15);
+            modelBuilder.Entity<Book>().HasData(b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15,b16);
             modelBuilder.Entity<Author>().HasData(a0, a1, a2, a3, a4, a5, a6, a7, a8, a9);
             modelBuilder.Entity<Publisher>().HasData(p0, p1, p2, p4, p5);
         }

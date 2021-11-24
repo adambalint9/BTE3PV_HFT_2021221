@@ -7,7 +7,7 @@ using BTE3PV_HFT_2021221.Models;
 
 namespace BTE3PV_HFT_2021221.Logic
 {
-    interface IAuthorLogic
+    public interface IAuthorLogic
     {
         void Create(Author author);
         void Delete(int id);
@@ -16,5 +16,6 @@ namespace BTE3PV_HFT_2021221.Logic
         void Update(Author author);
         IEnumerable<KeyValuePair<string, int>> CountBookByAuthor();
         double AGVBirthYear();
+         IEnumerable<KeyValuePair<string, int>> CountBookByTopic();
     }
 }

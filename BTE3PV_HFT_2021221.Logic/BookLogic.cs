@@ -19,15 +19,7 @@ namespace BTE3PV_HFT_2021221.Logic
         }
 
 
-
-        public IEnumerable<KeyValuePair<string, int>> CountBookByTopic()
-        {
-            return from x in bookRepository.ReadAll()
-                   group x by x.Author.AuthoreName into g
-                   select new KeyValuePair<string, int>
-                   (g.Key, g.GroupBy(t=>t.Topic).Count());
-                   
-        }
+      
         public IEnumerable<KeyValuePair<string, double>> AVGYeraPublished()
         {
             return from x in bookRepository.ReadAll()

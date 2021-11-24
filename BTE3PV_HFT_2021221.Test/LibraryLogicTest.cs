@@ -268,7 +268,7 @@ namespace BTE3PV_HFT_2021221.Test
         [Test]
         public void CountByTopicTest()
         {
-            var result = bl.CountBookByTopic().ToArray();
+            var result = al.CountBookByTopic().ToArray();
 
             //Assert.That(result[0], Is.EqualTo(new KeyValuePair<string, int>("Proba", 1)));
             Assert.That(result[1], Is.EqualTo(new KeyValuePair<string, int>("Probalina", 2)));

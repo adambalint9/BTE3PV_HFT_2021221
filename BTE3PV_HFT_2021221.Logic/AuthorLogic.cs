@@ -32,7 +32,14 @@ namespace BTE3PV_HFT_2021221.Logic
                    (x.AuthoreName, x.Books.Count());
         }
 
-        
+        public IEnumerable<KeyValuePair<string, int>> CountBookByTopic()
+        {
+            return from x in authorRepository.ReadAll()
+                   select new KeyValuePair<string, int>
+                   (x.AuthoreName,x.Books.GroupBy(t=>t.Topic).Count());
+
+        }
+
 
         public void Create(Author author)
         {

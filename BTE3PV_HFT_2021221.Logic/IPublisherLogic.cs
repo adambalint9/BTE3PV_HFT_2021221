@@ -7,7 +7,7 @@ using BTE3PV_HFT_2021221.Models;
 
 namespace BTE3PV_HFT_2021221.Logic
 {
-    interface IPublisherLogic
+    public interface IPublisherLogic
     {
         void Create(Publisher publisher);
         void Delete(int id);
