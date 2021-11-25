@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,9 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BTE3PV_HFT_2021221.Data\BTE3PV_HFT_2021221.Data.csproj" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BTE3PV_HFT_2021221.Models\BTE3PV_HFT_2021221.Models.csproj" />
-    <ProjectReference Include="..\BTE3PV_HFT_2021221.Repository\BTE3PV_HFT_2021221.Repository.csproj" />
   </ItemGroup>
 
 </Project>
