@@ -55,6 +55,11 @@ namespace BTE3PV_HFT_2021221.Models
         [JsonIgnore]
         public virtual Publisher Publishers { get; set; }
 
-        
+        public override string ToString()
+        { 
+            string s =" Id: "+ Id + "\n Title: " + Title +"\n Topic: "+Topic + "\n YearOfIssue: " + YearOfIssue + "\n Language: " + Language + "\n Lenght: "  +Lenght+"\n";
+            return s;
+        }
+
     }
 }

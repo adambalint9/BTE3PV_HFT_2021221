@@ -34,11 +34,19 @@ namespace BTE3PV_HFT_2021221.Models
 
             [NotMapped]
             [JsonIgnore]
-        public virtual ICollection<Book> Books { get; set; }
+             public virtual ICollection<Book> Books { get; set; }
 
             public Publisher()
             {
                 Books = new HashSet<Book>();
             }
-        }
+
+            public override string ToString()
+            {
+
+                string s ="Id: "+ Id+ "\n PublisherName: " + PublisherName + "\n TelphoneNumber: " + TelphoneNumber + "\n Email: " + Email + "\n Headquarters: " + Headquarters + "\n YearOfFundation:" + YearOfFundation;
+                return s;
+            }
+
+    }
 }

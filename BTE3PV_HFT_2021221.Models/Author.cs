@@ -41,6 +41,10 @@ namespace BTE3PV_HFT_2021221.Models
         {
             this.Books = new HashSet<Book>();
         }
-
+        public override string ToString()
+        {
+            String s = "Id: " +Id+ "\n AuthoreName:" + AuthoreName+ "\n Birthcountry:" + Birthcountry+ "\n BirthYear:" + BirthYear+ "\n Specialization:" + Specialization+ "\n WritingLanguage: " + WritingLanguage+ "\n";
+            return s;
+        }
     }
 }
