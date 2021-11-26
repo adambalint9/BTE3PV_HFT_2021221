@@ -17,17 +17,8 @@ namespace BTE3PV_HFT_2021221.Client
             RestService rest = new RestService("http://localhost:4854");
 
 
-            rest.Post<Publisher>(new Publisher()
-            {
-
-                PublisherName = "aaaaaa"
-
-            }, "Publisher"
-
-                );
-
-
-            var t = rest.Get<Publisher>("publisher");
+            
+            
             int option = 1000;
 
             while (option != 0)
