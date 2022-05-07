@@ -21,7 +21,7 @@ namespace BTE3PV_HFT_2021221.Models
         [Required]
         public string AuthoreName { get; set; }
 
-        [MaxLength(4)]
+        
         public int BirthYear { get; set; }
 
         [MaxLength(100)]

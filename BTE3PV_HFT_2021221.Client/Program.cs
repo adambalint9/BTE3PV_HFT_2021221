@@ -12,13 +12,14 @@ namespace BTE3PV_HFT_2021221.Client
     {
         static void Main(string[] args)
         {
-            System.Threading.Thread.Sleep(5000);
+            //System.Threading.Thread.Sleep(10000);
 
-            RestService rest = new RestService("http://localhost:4854");
+            RestService rest = new RestService("http://localhost:4854", "Book");
 
-
+           
             
-            
+
+
             int option = 1000;
 
             while (option != 0)
@@ -165,7 +166,7 @@ namespace BTE3PV_HFT_2021221.Client
                         else if (option == 3)
                         {
                             Console.Clear();
-                            Author newA = new Author();
+                             Author newA = new Author();
 
                             Console.WriteLine(" AuthoreName , Birthcountry,  BirthYear, Specialization, WritingLanguage ");
 
@@ -178,7 +179,7 @@ namespace BTE3PV_HFT_2021221.Client
                             newA.WritingLanguage = Console.ReadLine();
 
 
-                            rest.Put<Author>(newA, "Author");
+                            rest.Put<Author>(newA,"Author");
                             Console.WriteLine("Author has been updated press enter continue...");
                             Console.WriteLine();
 
@@ -192,7 +193,7 @@ namespace BTE3PV_HFT_2021221.Client
                             Console.WriteLine("Author has been deleted press enter continue...");
                             Console.WriteLine();
                         }
-                        else if (option == 3)
+                        else if (option == 5)
                         {
                             Console.Clear();
                             Author newA = new Author();
@@ -208,7 +209,7 @@ namespace BTE3PV_HFT_2021221.Client
                             newA.WritingLanguage = Console.ReadLine();
 
 
-                            rest.Put<Author>(newA, "Author");
+                            rest.Post<Author>(newA,"Author");
                             Console.WriteLine("Author has been created press enter continue...");
                             Console.WriteLine();
 
@@ -300,7 +301,7 @@ namespace BTE3PV_HFT_2021221.Client
 
 
 
-                            rest.Put<Publisher>(newP, "Publisher");
+                            rest.Post<Publisher>(newP, "Publisher");
                             Console.WriteLine("Publisher has been Created press enter continue...");
                             Console.WriteLine();
 

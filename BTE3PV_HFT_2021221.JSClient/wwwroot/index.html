@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Book UI</title>
+    <link rel="stylesheet" href="Style.css"/>
+</head>
+<body>
+    <div id="formdiv">
+        
+        <label>Authore Name</label>
+        <input type="text" id="name" />
+        <label>Birth Year</label>
+        <input type="number" id="birth" />
+        <label>Specialization </label>
+        <input type="tel" id="spec" />
+        <label>Birth Country</label>
+        <input type="text" id="country" />
+        <label>Writing Language</label>
+        <input type="text" id="language" />      
+        <button type="button" onclick="create()">Add Book</button>
+    </div>
+
+
+    <h1>Book List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>AuthoreName</th>
+                <th>BirthYear</th>
+                <th>Specialization</th>
+                <th>Birthcountry</th>
+                <th>WritingLanguage</th>
+               
+            </tr>
+        </thead>
+        <tbody id="results" >
+    </table>
+    <script src="Script.js"></script>
+</body>
+</html>

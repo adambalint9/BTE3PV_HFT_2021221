@@ -33,11 +33,7 @@ namespace BTE3PV_HFT_2021221.Models
         [MaxLength(100)]
         
         public string Language { get; set; }
-
-        public int Count(Func<object, bool> p)
-        {
-            throw new NotImplementedException();
-        }
+    
 
         public int Lenght { get; set; }
 
