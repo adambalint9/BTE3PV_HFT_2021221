@@ -51,7 +51,7 @@ namespace BTE3PV_HFT_2021221.Endpoint.Controllers
         public void Put([FromBody] Author value)
         {
             al.Update(value);
-            this.hub.Clients.All.SendAsync("AuthorUpdate", value);
+            this.hub.Clients.All.SendAsync("AuthorUpdated", value);
         }
 
         // DELETE api/<AuthorController>/5
