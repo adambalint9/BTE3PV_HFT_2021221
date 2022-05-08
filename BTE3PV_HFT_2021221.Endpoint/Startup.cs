@@ -1,16 +1,12 @@
 using BTE3PV_HFT_2021221.Data;
+using BTE3PV_HFT_2021221.Endpoint.Services;
 using BTE3PV_HFT_2021221.Logic;
 using BTE3PV_HFT_2021221.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BTE3PV_HFT_2021221.Endpoint
 {
@@ -27,8 +23,10 @@ namespace BTE3PV_HFT_2021221.Endpoint
             services.AddTransient<IBookRepository, BookRepository>();
             services.AddTransient<IAuthorRepository, AuthorRepository>();
             services.AddTransient<IPublisherRepository, PublisherRepository>();
-
             services.AddTransient<LibraryDbContext, LibraryDbContext>();
+
+            services.AddSignalR();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BTE3PV_HFT_2021221.Endpoint", Version = "v1" });
@@ -66,6 +64,7 @@ namespace BTE3PV_HFT_2021221.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
           
         }

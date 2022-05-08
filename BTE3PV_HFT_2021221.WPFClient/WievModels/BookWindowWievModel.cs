@@ -37,8 +37,6 @@ namespace BTE3PV_HFT_2021221.WPFClient
                     selectedBook = value;                  
                     OnPropertyChanged();
                     (DeleteBookCommand  as RelayCommand).NotifyCanExecuteChanged(); 
-
-
                 }
                 
             
@@ -88,27 +86,44 @@ namespace BTE3PV_HFT_2021221.WPFClient
 
                  });
 
-            DeleteBookCommand = new RelayCommand(()=> 
-            Books.Delete(SelectedBook.Id),
-            ()=>
-            {
-                return SelectedBook != null;
-            }
+                DeleteBookCommand = new RelayCommand(()=>
+                {
+                    Books.Delete(SelectedBook.Id);
+                },
+                ()=>
+                {
+                    return SelectedBook != null;
+                }
             
-            );
-            }
-            UpdateBookCommand = new RelayCommand(() =>
-            {
-                try
-                {
-                    Books.Update(SelectedBook);
+                );
                 }
-                catch (ArgumentException ex)
+                UpdateBookCommand = new RelayCommand(() =>
                 {
-                    ErrorMessage = ex.Message;
-                }
+                    try
+                    {
+                        Books.Update(new Book()
 
-            });
+                        {
+                            Title=selectedBook.Title,
+                            Topic=selectedBook.Topic,
+                            Language=selectedBook.Language,
+                            Lenght=selectedBook.Lenght,
+                            YearOfIssue=selectedBook.YearOfIssue,
+                            AuthorID=selectedBook.AuthorID,
+                            PublisherID=selectedBook.PublisherID,
+                            Id=selectedBook.Id
+
+                        });
+
+
+                        
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        ErrorMessage = ex.Message;
+                    }
+
+                 });
             SelectedBook=new Book();
         }
     }

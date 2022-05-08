@@ -1,6 +1,8 @@
-﻿using BTE3PV_HFT_2021221.Logic;
+﻿using BTE3PV_HFT_2021221.Endpoint.Services;
+using BTE3PV_HFT_2021221.Logic;
 using BTE3PV_HFT_2021221.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +17,12 @@ namespace BTE3PV_HFT_2021221.Endpoint.Controllers
     public class BookController : ControllerBase
     {
         IBookLogic bl;
+        IHubContext<SignalRHub> hub;
 
-
-        public BookController(IBookLogic bl)
+        public BookController(IBookLogic bl, IHubContext<SignalRHub> hub)
         {
             this.bl = bl;
+            this.hub = hub; 
         
         }
 
@@ -43,20 +46,24 @@ namespace BTE3PV_HFT_2021221.Endpoint.Controllers
         public void Post([FromBody] Book value)
         {
             bl.Create(value);
+            this.hub.Clients.All.SendAsync("Book Created", value);
         }
 
         // PUT api/<BookController>/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public void Put([FromBody] Book Value)
         {
             bl.Update(Value);
+            this.hub.Clients.All.SendAsync("Book Updated", Value);
         }
 
         // DELETE api/<BookController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var b = bl.Read(id);
             bl.Delete(id);
+            this.hub.Clients.All.SendAsync("Book Deleted", b);
         }
     }
 }

@@ -19,8 +19,8 @@
         <StackPanel Grid.Column="1" Grid.RowSpan="2"  >
 
             <Button Content="Books"  Click="Button_Click" Padding="10"/>
-            <Button Content="Authors" Padding="10"/>
-            <Button Content="Publishers" Padding="10"/>
+            <Button Content="Authors" Click="Button_Click_1" Padding="10"/>
+            <Button Content="Publishers" Click="Button_Click_2" Padding="10"/>
 
 
         </StackPanel>

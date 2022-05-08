@@ -44,7 +44,7 @@ namespace BTE3PV_HFT_2021221.Endpoint.Controllers
         }
 
         // PUT api/<AuthorController>/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public void Put([FromBody] Author value)
         {
             al.Update(value);

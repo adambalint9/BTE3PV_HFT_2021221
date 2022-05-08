@@ -9,7 +9,7 @@
     <Window.DataContext>
         <local:BookWindowWievModel/>
     </Window.DataContext>
-    <Grid d:IsLocked="True">
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>

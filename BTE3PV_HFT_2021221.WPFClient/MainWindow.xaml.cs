@@ -30,5 +30,17 @@ namespace BTE3PV_HFT_2021221.WPFClient
             BookWindow Bookw = new BookWindow();
             Bookw.ShowDialog(); 
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            AuthorWindow AuthorWindow = new AuthorWindow();
+            AuthorWindow.ShowDialog();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            PublisherWindow publisherWindow = new PublisherWindow();
+            publisherWindow.ShowDialog();
+        }
     }
 }

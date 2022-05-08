@@ -8,12 +8,6 @@ namespace BTE3PV_HFT_2021221.WPFClient
 {
     public class MainWindowWievModel
     {
-        public void BookTable()
-        {
-            BookWindow Bookw=new BookWindow();
-            Bookw.ShowDialog();
-        
-        
-        }
+       
     }
 }
