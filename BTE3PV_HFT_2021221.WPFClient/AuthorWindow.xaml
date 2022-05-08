@@ -27,8 +27,6 @@
                         <Label Content="{Binding WritingLanguage}"/>
                         <Label Content="{Binding Specialization}"/>
                     </StackPanel>
-
-
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

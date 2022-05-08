@@ -36,6 +36,7 @@ namespace BTE3PV_HFT_2021221.WPFClient.WievModels
                 {
                     selectedPublisher = value;
                     OnPropertyChanged();
+                    (DeletPulisherCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
             }                              
         }
@@ -77,7 +78,7 @@ namespace BTE3PV_HFT_2021221.WPFClient.WievModels
 
                 DeletPulisherCommand = new RelayCommand(() =>
                  {
-                     Publishers.Delete(selectedPublisher.Id);
+                     Publishers.Delete(SelectedPublisher.Id);
                  },
                 () =>
                 {

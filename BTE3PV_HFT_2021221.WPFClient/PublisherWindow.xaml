@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
         
         
-        <ListBox ItemsSource="{Binding Publishers}" SelectedItem="{Binding Publishers}">
+        <ListBox ItemsSource="{Binding Publishers}" SelectedItem="{Binding SelectedPublisher}">
             <ListBox.ItemTemplate  >
                 <DataTemplate >
                     <StackPanel Background="LightBlue" >
@@ -50,9 +50,9 @@
             <Label Content="Year of fundation" Background="LightBlue" Padding="3" />
             <TextBox Text="{Binding SelectedPublisher.YearOfFundation}" Padding="5"  />
 
-            <Button Content="Create Publisher" Command="" Margin="40,5,40,5" Padding="5" />
-            <Button Content="Delete Publisher" Command="" Margin="40,5,40,5" Padding="5" />
-            <Button Content="Update Publisher" Command="" Margin="40,5,40,5" Padding="5" />
+            <Button Content="Create Publisher" Command="{Binding CreatePulisherCommand}" Margin="40,5,40,5" Padding="5" />
+            <Button Content="Delete Publisher" Command="{Binding DeletPulisherCommand}" Margin="40,5,40,5" Padding="5" />
+            <Button Content="Update Publisher" Command="{Binding UpdatePulisherCommand}" Margin="40,5,40,5" Padding="5" />
 
         </StackPanel>
 

@@ -74,16 +74,13 @@ namespace BTE3PV_HFT_2021221.WPFClient.WievModels
                      WritingLanguage=selectedAuthor.WritingLanguage,
                      Birthcountry=selectedAuthor.Birthcountry
 
-                    } );
-         
+                    } );        
              
                 });
 
                 DeleteAuthorCommand = new RelayCommand(() => 
                 {
-
-                    Authors.Delete(selectedAuthor.Id);
-                
+                    Authors.Delete(selectedAuthor.Id);               
                 
                 },
                 ()=>
@@ -115,24 +112,14 @@ namespace BTE3PV_HFT_2021221.WPFClient.WievModels
                         ErrorMessage = ex.Message;
                     }
 
-
-
-
                 });
                 selectedAuthor = new Author();
                
 
-
-
-
             }
-        
-        
+
         
         }
-
-
-
 
     }
 }
