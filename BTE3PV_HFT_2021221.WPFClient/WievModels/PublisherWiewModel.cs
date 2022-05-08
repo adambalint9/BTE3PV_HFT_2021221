@@ -34,7 +34,17 @@ namespace BTE3PV_HFT_2021221.WPFClient.WievModels
             {
                 if (value!=null)
                 {
-                    selectedPublisher = value;
+                    selectedPublisher =new Publisher()
+                    { Id = value.Id ,
+                        PublisherName = value.PublisherName ,
+                        YearOfFundation = value.YearOfFundation ,
+                        Email = value.Email ,
+                        TelphoneNumber = value.TelphoneNumber ,
+                        Headquarters = value.Headquarters 
+                    
+                    
+                    
+                    };
                     OnPropertyChanged();
                     (DeletPulisherCommand as RelayCommand).NotifyCanExecuteChanged();
                 }

@@ -34,9 +34,29 @@ namespace BTE3PV_HFT_2021221.WPFClient
 
                 if (value != null)
                 {
-                    selectedBook = value;                  
+                    selectedBook=new Book()
+                    { AuthorID=value.AuthorID,
+                        PublisherID=value.PublisherID,
+                        Id=value.Id,
+                        Language=value.Language,
+                        Lenght=value.Lenght,                       
+                        Title=value.Title,
+                        Topic=value.Topic,
+                        YearOfIssue=value.YearOfIssue,
+  
+                    };
+                       
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     OnPropertyChanged();
-                    (DeleteBookCommand  as RelayCommand).NotifyCanExecuteChanged(); 
+                    (DeleteBookCommand  as RelayCommand).NotifyCanExecuteChanged();
+                   
+                    
                 }
                 
             
@@ -114,6 +134,7 @@ namespace BTE3PV_HFT_2021221.WPFClient
                             Id=selectedBook.Id
 
                         });
+                        
 
 
                         

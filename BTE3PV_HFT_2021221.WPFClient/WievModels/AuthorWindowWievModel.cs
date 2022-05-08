@@ -34,7 +34,17 @@ namespace BTE3PV_HFT_2021221.WPFClient.WievModels
             set {
                 if (value!=null)
                 {
-                    selectedAuthor = value;
+                    selectedAuthor = new Author()
+                    {
+                        Id = value.Id,
+                        AuthoreName = value.AuthoreName,
+                        Birthcountry = value.Birthcountry,
+                        BirthYear = value.BirthYear,
+                        WritingLanguage = value.WritingLanguage,
+                        Specialization = value.Specialization
+
+
+                    };
                     OnPropertyChanged();
                     (DeleteAuthorCommand as RelayCommand).NotifyCanExecuteChanged();
 
