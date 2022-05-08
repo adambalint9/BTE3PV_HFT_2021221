@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BTE3PV_HFT_2021221.WPFClient"
         mc:Ignorable="d"
-        Title="BookEditor" Height="450" Width="800">
+        Title="BookEditor" Height="600" Width="800" HorizontalAlignment="Center">
     <Window.DataContext>
         <local:BookWindowWievModel/>
     </Window.DataContext>
@@ -14,10 +14,10 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Books}" d:IsLocked="True">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
+        <ListBox ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook}">
+            <ListBox.ItemTemplate  >
+                <DataTemplate >
+                    <StackPanel Background="LightBlue" >
                         <Label Content="{Binding Title}"/>
                         <Label Content="{Binding Topic}"/>
                         <Label Content="{Binding YearOfIssue}"/>
@@ -31,21 +31,25 @@
         </ListBox>
 
 
-        <StackPanel Grid.Column="1" d:IsLocked="True">
-            <Label Content="Title" Background="LightBlue" Padding="3" d:IsLocked="True" />
-            <TextBox Text="" Padding="5" d:IsLocked="True" />
-            <Label Content="Topic" Background="LightBlue" Padding="3" d:IsLocked="True" />
-            <TextBox Text="" Padding="5" d:IsLocked="True"  />
-            <Label Content="Year of Issue" Background="LightBlue" Padding="3" d:IsLocked="True" />
-            <TextBox Text="" Padding="5" d:IsLocked="True"  />
-            <Label Content="Language" Background="LightBlue" Padding="3" d:IsLocked="True" />
-            <TextBox Text="" Padding="5" d:IsLocked="True"  />
-            <Label Content="Lnegth" Background="LightBlue" Padding="3" d:IsLocked="True" />
-            <TextBox Text="" Padding="5" d:IsLocked="True"  />
+        <StackPanel Grid.Column="1"  >
+            <Label Content="Title" Background="LightBlue" Padding="3"  />
+            <TextBox Padding="5" Text="{Binding SelectedBook.Title}" />
+            <Label Content="Topic" Background="LightBlue" Padding="3"  />
+            <TextBox Text="{Binding SelectedBook.Topic}" Padding="5"  />
+            <Label Content="Year of Issue" Background="LightBlue" Padding="3" />
+            <TextBox Text="{Binding SelectedBook.YearOfIssue}" Padding="5"   />
+            <Label Content="Language" Background="LightBlue" Padding="3"  />
+            <TextBox Text="{Binding SelectedBook.Language}" Padding="5"  />
+            <Label Content="Lenegth" Background="LightBlue" Padding="3"  />
+            <TextBox Text="{Binding SelectedBook.Lenght}" Padding="5"  />
+            <Label Content="Author Author ID" Background="LightBlue" Padding="3"  />
+            <TextBox Text="{Binding SelectedBook.AuthorID}" Padding="5"  />
+            <Label Content="Publisher Publisher ID" Background="LightBlue" Padding="3"  />
+            <TextBox Text="{Binding SelectedBook.PublisherID}" Padding="5"  />
 
-            <Button Content="Create Book" Command="" Margin="40,5,40,5" Padding="5" d:IsLocked="True" />
-            <Button Content="Delete Book" Command="" Margin="40,5,40,5" Padding="5" d:IsLocked="True" />
-            <Button Content="Update Book" Command="" Margin="40,5,40,5" Padding="5" d:IsLocked="True" />
+            <Button Content="Create Book" Command="{Binding CreateBookCommand}" Margin="40,5,40,5" Padding="5"  />
+            <Button Content="Delete Book" Command="{Binding DeleteBookCommand}" Margin="40,5,40,5" Padding="5"  />
+            <Button Content="Update Book" Command="{Binding UpdateBookCommand}" Margin="40,5,40,5" Padding="5"  />
 
         </StackPanel>
 

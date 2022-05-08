@@ -6,20 +6,24 @@
         xmlns:local="clr-namespace:BTE3PV_HFT_2021221.WPFClient"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="395*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
-       </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="1" >
-            
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1" Grid.RowSpan="2"  >
+
             <Button Content="Books"  Click="Button_Click" Padding="10"/>
             <Button Content="Authors" Padding="10"/>
             <Button Content="Publishers" Padding="10"/>
-     
+
 
         </StackPanel>
-        
+
     </Grid>
 </Window>
