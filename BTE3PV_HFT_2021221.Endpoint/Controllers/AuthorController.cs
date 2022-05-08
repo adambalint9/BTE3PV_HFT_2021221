@@ -60,7 +60,7 @@ namespace BTE3PV_HFT_2021221.Endpoint.Controllers
         {
             var a = al.Read(id);    
             al.Delete(id);
-            this.hub.Clients.All.SendAsync("BookDeleted", a);
+            this.hub.Clients.All.SendAsync("AuthorDeleted", a);
         }
     }
 }

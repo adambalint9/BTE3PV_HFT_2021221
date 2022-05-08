@@ -29,3 +29,15 @@ th {
 table button {
     padding :2px;
 }
+#Updateformdiv {
+    display:none;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+#Updateformdiv label, button, input {
+    margin: 3px;
+    padding: 3px;
+}
+#Updateformdiv label {
+   font-weight: bolder;
+}
