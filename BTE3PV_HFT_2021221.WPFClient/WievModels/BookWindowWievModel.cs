@@ -65,7 +65,7 @@ namespace BTE3PV_HFT_2021221.WPFClient
             {
 
             
-                Books = new RestCollection<Book>("http://localhost:4854/", "Book");
+                Books = new RestCollection<Book>("http://localhost:4854/", "Book","hub");
                 CreateBookCommand = new RelayCommand(()=>{
             
                     Books.Add(new Book()

@@ -48,7 +48,7 @@
             <Button Content="Create Author" Command="{Binding CreateAuthorCommand}" Margin="40,5,40,5" Padding="5" />
             <Button Content="Delete Author" Command="{Binding DeleteAuthorCommand}" Margin="40,5,40,5" Padding="5" />
             <Button Content="Update Author" Command="{Binding UpadteAuthorCommand}" Margin="40,5,40,5" Padding="5" />
-
+            
         </StackPanel>
 
     </Grid>

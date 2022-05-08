@@ -1,6 +1,8 @@
-﻿using BTE3PV_HFT_2021221.Logic;
+﻿using BTE3PV_HFT_2021221.Endpoint.Services;
+using BTE3PV_HFT_2021221.Logic;
 using BTE3PV_HFT_2021221.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +17,12 @@ namespace BTE3PV_HFT_2021221.Endpoint.Controllers
     public class AuthorController : ControllerBase
     {
         IAuthorLogic al;
+        IHubContext<SignalRHub> hub;
 
-
-        public AuthorController(IAuthorLogic al)
+        public AuthorController(IAuthorLogic al, IHubContext<SignalRHub> hub)
         {
             this.al = al;
+            this.hub = hub;
         }
         // GET: api/<AuthorController>
         [HttpGet]
@@ -40,7 +43,7 @@ namespace BTE3PV_HFT_2021221.Endpoint.Controllers
         public void Post([FromBody] Author value)
         {
             al.Create(value);
-
+            this.hub.Clients.All.SendAsync("AuthorCreated", value);
         }
 
         // PUT api/<AuthorController>/5
@@ -48,13 +51,16 @@ namespace BTE3PV_HFT_2021221.Endpoint.Controllers
         public void Put([FromBody] Author value)
         {
             al.Update(value);
+            this.hub.Clients.All.SendAsync("AuthorUpdate", value);
         }
 
         // DELETE api/<AuthorController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var a = al.Read(id);    
             al.Delete(id);
+            this.hub.Clients.All.SendAsync("BookDeleted", a);
         }
     }
 }

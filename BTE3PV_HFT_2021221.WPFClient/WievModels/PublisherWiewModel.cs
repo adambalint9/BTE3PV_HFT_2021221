@@ -60,7 +60,7 @@ namespace BTE3PV_HFT_2021221.WPFClient.WievModels
         {
             if (!IsInDesignMode)
             {
-                Publishers = new RestCollection<Publisher>("http://localhost:4854/", "Publisher");
+                Publishers = new RestCollection<Publisher>("http://localhost:4854/", "Publisher","hub");
 
                 CreatePulisherCommand = new RelayCommand(() =>
                 {

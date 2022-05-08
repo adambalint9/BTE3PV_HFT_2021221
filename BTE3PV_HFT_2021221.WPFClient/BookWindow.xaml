@@ -50,7 +50,7 @@
             <Button Content="Create Book" Command="{Binding CreateBookCommand}" Margin="40,5,40,5" Padding="5"  />
             <Button Content="Delete Book" Command="{Binding DeleteBookCommand}" Margin="40,5,40,5" Padding="5"  />
             <Button Content="Update Book" Command="{Binding UpdateBookCommand}" Margin="40,5,40,5" Padding="5"  />
-
+        
         </StackPanel>
 
     </Grid>

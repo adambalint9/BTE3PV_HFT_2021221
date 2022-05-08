@@ -132,14 +132,14 @@ namespace BTE3PV_HFT_2021221.Data
                 entity.HasOne(book => book.Author)
                 .WithMany(author => author.Books)
                 .HasForeignKey(book => book.AuthorID)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
             });
             modelBuilder.Entity<Book>(entity =>
             {
                 entity.HasOne(book => book.Publishers)
                 .WithMany(publishers => publishers.Books)
                 .HasForeignKey(book => book.PublisherID)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Book>().HasData(b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15,b16);

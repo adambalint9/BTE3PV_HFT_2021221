@@ -53,7 +53,7 @@
             <Button Content="Create Publisher" Command="{Binding CreatePulisherCommand}" Margin="40,5,40,5" Padding="5" />
             <Button Content="Delete Publisher" Command="{Binding DeletPulisherCommand}" Margin="40,5,40,5" Padding="5" />
             <Button Content="Update Publisher" Command="{Binding UpdatePulisherCommand}" Margin="40,5,40,5" Padding="5" />
-
+            
         </StackPanel>
 
     </Grid>

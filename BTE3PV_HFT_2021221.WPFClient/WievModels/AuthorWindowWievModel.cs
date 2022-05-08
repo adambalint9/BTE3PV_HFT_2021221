@@ -62,7 +62,7 @@ namespace BTE3PV_HFT_2021221.WPFClient.WievModels
         {
             if (!IsInDesignMode)
             {
-                Authors = new RestCollection<Author>("http://localhost:4854/", "Author");
+                Authors = new RestCollection<Author>("http://localhost:4854/", "Author","hub");
 
                 CreateAuthorCommand = new RelayCommand(() => { 
                     Authors.Add(new Author()

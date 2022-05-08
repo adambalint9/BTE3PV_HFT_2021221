@@ -1,5 +1,5 @@
 ﻿let Authors = [];
-
+let coonection = null;
 getdata();
 
 async function getdata() {
@@ -44,6 +44,38 @@ function remove(id) {
         .catch((error) => { console.error('Error:', error); });
     
 }
+function setupSignalR()
+{
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("http://localhost:4854/hub")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+
+    connection.on("AuthorCreated", (user, message) => {
+        console.log(user);
+        console.log(message);
+    });
+    
+    connection.onclose(async () => {
+        await start();
+    });
+    start();
+
+}
+    async function start() {
+        try {
+            await connection.start();
+            console.log("SignalR Connected.");
+        } catch (err) {
+            console.log(err);
+            setTimeout(start, 5000);
+        }
+    };
+
+
+
+
+
 
 
 function create() {

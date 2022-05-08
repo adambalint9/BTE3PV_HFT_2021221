@@ -46,7 +46,7 @@ namespace BTE3PV_HFT_2021221.Endpoint.Controllers
         public void Post([FromBody] Book value)
         {
             bl.Create(value);
-            this.hub.Clients.All.SendAsync("Book Created", value);
+            this.hub.Clients.All.SendAsync("BookCreated", value);
         }
 
         // PUT api/<BookController>/5
@@ -54,7 +54,7 @@ namespace BTE3PV_HFT_2021221.Endpoint.Controllers
         public void Put([FromBody] Book Value)
         {
             bl.Update(Value);
-            this.hub.Clients.All.SendAsync("Book Updated", Value);
+            this.hub.Clients.All.SendAsync("BookUpdated", Value);
         }
 
         // DELETE api/<BookController>/5
@@ -63,7 +63,7 @@ namespace BTE3PV_HFT_2021221.Endpoint.Controllers
         {
             var b = bl.Read(id);
             bl.Delete(id);
-            this.hub.Clients.All.SendAsync("Book Deleted", b);
+            this.hub.Clients.All.SendAsync("BookDeleted", b);
         }
     }
 }
