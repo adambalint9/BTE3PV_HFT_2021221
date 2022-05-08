@@ -13,11 +13,8 @@ async function getdata() {
 }
 
 
-
-
-
-
 function display() {
+    document.getElementById('results').innerHTML = "";
     Authors.forEach(t => {
         document.getElementById('results').innerHTML +=
             "<tr><td>" + t.id + "</td><td>" +
@@ -25,10 +22,30 @@ function display() {
         t.birthYear + "</td><td>" +
         t.specialization + "</td><td>" +
         t.birthcountry + "</td><td>"+
-        t.writingLanguage +     "</td></tr>";
+        t.writingLanguage + "</td><td>" +
+        `<button type="button" onclick="remove(${t.id})">Delete</button>`
+
+
+            +"</td></tr>";
       });
 
 }
+function remove(id) {
+    fetch('http://localhost:4854/Author/' + id, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json', },
+        body: null
+    })
+        .then(response => response)
+        .then(data => {
+            console.log('Success:', data);
+            getdata();
+        })
+        .catch((error) => { console.error('Error:', error); });
+    
+}
+
+
 function create() {
     let aname = document.getElementById('name').value;
     let abirth = document.getElementById('birth').value;
@@ -43,16 +60,17 @@ function create() {
                 authoreName: aname,
                 birthYear: abirth,
                 specialization: aspec,
-                birthcountry: country,
+                birthcountry: acountry,
                 writingLanguage: alang
             }),
         })
     .then(response => response)
     .then(data => {
         console.log('Success:', data);
+        getdata();
     })
     .catch((error) => {
         console.error('Error:', error);
     });
-    getdata();
+    
 }

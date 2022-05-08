@@ -1,0 +1,25 @@
+﻿<Window x:Class="BTE3PV_HFT_2021221.WPFClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BTE3PV_HFT_2021221.WPFClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+       </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1" >
+            
+            <Button Content="Books"  Click="Button_Click" Padding="10"/>
+            <Button Content="Authors" Padding="10"/>
+            <Button Content="Publishers" Padding="10"/>
+     
+
+        </StackPanel>
+        
+    </Grid>
+</Window>

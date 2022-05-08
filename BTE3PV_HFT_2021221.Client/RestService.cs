@@ -14,11 +14,11 @@ namespace BTE3PV_HFT_2021221.Client
 
         public RestService(string baseurl, string pingableEndpoint = "swagger")
         {
-            /*bool isOk = false;
+            bool isOk = false;
             do
             {
                 isOk = Ping(baseurl + pingableEndpoint);
-            } while (isOk == false);*/
+            } while (isOk == false);
             Init(baseurl);
         }
 
